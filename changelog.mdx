@@ -1,0 +1,121 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and new features released for SkyITVPS services.
+---
+
+## Recent Updates
+
+SkyITVPS delivers regular updates to enhance server stability, speed, and security for your virtual private servers (VPS) and cloud solutions. Review the latest releases below to see improvements in performance, accounting integrations, and security protocols.
+
+<Callout kind="info">
+  Enable automatic updates in your dashboard at `https://dashboard.example.com` to receive these enhancements seamlessly.
+</Callout>
+
+<Update label="2024-10-15" description="v2.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added NVMe SSD caching for cloud servers, reducing I/O latency by up to `50%` for accounting workloads.
+- Introduced one-click accounting software templates (1C, QuickBooks) during VPS provisioning.
+
+## Improvements
+
+- Optimized CPU scheduling for high-load scenarios, improving throughput for multi-tenant environments.
+- Enhanced data backup retention with granular restore options via the API.
+
+## How to Upgrade
+
+<Steps>
+  <Step title="Check Compatibility" icon="check-circle">
+    Verify your current setup supports NVMe drivers.
+  </Step>
+  <Step title="Apply Update" icon="download">
+    
+````bash
+ssh user@your-vps.example.com
+sudo apt update && sudo apt upgrade skyitvps-agent
+````
+
+  </Step>
+  <Step title="Restart Services" icon="refresh-cw">
+    
+````bash
+sudo systemctl restart skyitvps-server
+````
+
+  </Step>
+</Steps>
+
+</Update>
+
+<Update label="2024-09-20" description="v2.0.0" tags={["security", "bugfix"]}>
+
+## Security Updates
+
+- Implemented TLS 1.3 enforcement across all endpoints at `https://api.example.com`.
+- Added zero-trust network policies for VPS firewalls, blocking unauthorized inbound traffic.
+
+## Bug Fixes
+
+- Resolved intermittent connection drops during peak hours on shared cloud resources.
+- Fixed API rate limiting issues affecting accounting data syncs.
+
+<CodeGroup tabs="cURL,Python">
+```bash
+curl -X POST https://api.example.com/v2/servers/{server_id}/firewall \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{"policy": "zero-trust"}'
+```
+
+````python
+import requests
+
+response = requests.post(
+    "https://api.example.com/v2/servers/{server_id}/firewall",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={"policy": "zero-trust"}
+)
+````
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.9.0" tags={["improvement", "bugfix"]}>
+
+## Improvements
+
+- Streamlined office optimization tools with automated resource scaling for VPS.
+- Upgraded monitoring dashboards to include real-time accounting integration metrics.
+
+## Bug Fixes
+
+- Corrected data storage sync errors in cloud backups.
+- Patched minor UI glitches in the VPS control panel.
+
+</Update>
+
+## Upcoming Roadmap
+
+Discover what's next for SkyITVPS. These features prioritize your accounting solutions and server reliability.
+
+<Columns cols={3}>
+  <Card title="Q4 2024" icon="zap" horizontal>
+    AI-driven performance tuning for VPS.
+  </Card>
+  <Card title="Q1 2025" icon="shield" horizontal>
+    End-to-end encryption for data storage.
+  </Card>
+  <Card title="Q2 2025" icon="database" horizontal>
+    Native multi-cloud failover for accounting apps.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Provide feedback on these roadmap items via support at `https://dashboard.example.com/support`.
+</Callout>
+
+## Quick Links
+
+- [Introduction](/introduction)
+- [Quickstart](/quickstart)
+- [Authentication](/authentication)

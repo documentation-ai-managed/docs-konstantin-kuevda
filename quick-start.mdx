@@ -1,0 +1,139 @@
+---
+title: Getting Started with SkyITVPS
+description: Follow this guide to quickly set up your account and launch your first virtual or cloud server in minutes.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- A valid email address for account verification
+- Payment method ready (credit card or PayPal)
+- Basic knowledge of SSH for server access
+
+<Callout kind="info">
+SkyITVPS offers a 7-day money-back guarantee on all plans. No risk to try!
+</Callout>
+
+## Create Your SkyITVPS Account
+
+Follow these steps to sign up in under 2 minutes.
+
+<Steps>
+  <Step title="Visit Dashboard" icon="globe">
+    Go to the [SkyITVPS dashboard](https://dashboard.skyitvps.com) and click `Sign Up`.
+  </Step>
+
+  <Step title="Fill Registration Form">
+    Enter your email, create a strong password, and accept terms.
+  </Step>
+
+  <Step title="Verify Email">
+    Check your inbox and click the verification link.
+  </Step>
+
+  <Step title="Complete Profile">
+    Add billing details to activate your account.
+  </Step>
+</Steps>
+
+## Select and Deploy Your First Server
+
+Choose between VPS for dedicated resources or Cloud for scalable instances.
+
+<Tabs>
+  <Tab title="VPS Plan" icon="server">
+    Select a VPS plan optimized for accounting software.
+
+    <Steps>
+      <Step title="Choose Plan">
+        Pick `VPS Basic` (2 vCPU, 4GB RAM, 50GB SSD) starting at `{price}`/month.
+      </Step>
+
+      <Step title="Configure">
+        Select OS: Ubuntu 22.04 LTS or Windows Server 2022.
+      </Step>
+
+      <Step title="Deploy">
+        Click `Order Now` and checkout. Server provisions in `<60s`.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Cloud Server" icon="cloud">
+    Ideal for dynamic workloads with auto-scaling.
+
+    <Steps>
+      <Step title="Select Cloud">
+        Choose `Cloud Starter` with on-demand scaling.
+      </Step>
+
+      <Step title="Customize">
+        Set region (US East, EU Central), storage, and firewall rules.
+      </Step>
+
+      <Step title="Launch">
+        Deploy instantly with one-click snapshots.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+Use promo code `SKYSTART10` for 10% off your first month.
+</Callout>
+
+## Access and Verify Your Server
+
+Retrieve SSH credentials from the dashboard under `My Servers > Actions > Console`.
+
+<CodeGroup tabs="Linux,macOS,Windows">
+  ```bash
+  # Linux/macOS
+  ssh root@your-server-ip -p 22
+  # Enter password from dashboard
+  whoami  # Should output: root
+  uptime  # Verify server is running
+  ```
+  ```powershell
+  # Windows (PowerShell)
+  ssh root@your-server-ip -p 22
+  # Use PuTTY or OpenSSH
+  whoami
+  uptime
+  ```
+</CodeGroup>
+
+Run `apt update && apt upgrade -y` (Ubuntu) to secure your instance.
+
+## Basic Security Setup
+
+Enable firewall and update packages immediately.
+
+```bash
+ufw allow OpenSSH
+ufw --force enable
+ufw status
+```
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Configure Accounting Software" icon="database" href="/configuration">
+    Install 1C, QuickBooks, or custom ERP on your VPS.
+  </Card>
+
+  <Card title="Scale Your Infrastructure" icon="trending-up" href="/guide">
+    Learn auto-scaling and load balancing.
+  </Card>
+
+  <Card title="24/7 Support" icon="headphones" href="https://skyitvps.com/support" target="_blank">
+    Contact our experts anytime.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Server not accessible?** Check firewall rules and IP whitelist.
+  - **High CPU?** Monitor via dashboard graphs; upgrade plan if needed.
+  - **Billing issues?** View invoices in `Billing > History`.
+</Expandable>

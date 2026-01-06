@@ -1,0 +1,29 @@
+---
+title: Set Up Automatic Backups for Accounting Data
+description: How to schedule daily backups for your accounting software data on SkyITVPS.
+---
+
+## Why Backups Matter
+
+Protect your critical accounting data from loss or corruption.
+
+## Steps
+
+<Steps>
+  <Step title="Log in to Server">
+    Connect via RDP (Windows) or SSH (Linux) to your SkyITVPS instance.
+  </Step>
+  <Step title="Schedule Backup Task">
+    Use Windows Task Scheduler or `cron` for Linux:
+    ````bash
+    # Linux example
+    0 2 * * * tar czf /backup/accounting-$(date +%F).tar.gz /path/to/data
+    ````
+  </Step>
+  <Step title="Verify Storage">
+    Ensure /backup or backup disk has enough space.
+  </Step>
+  <Step title="Test Restore">
+    Try restoring a backup to confirm integrity.
+  </Step>
+</Steps>
